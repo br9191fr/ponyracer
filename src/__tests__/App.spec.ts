@@ -8,3 +8,9 @@ describe('App.vue', () => {
     expect(wrapper.get('h1').text()).toBe('Ponyracer');
   });
 });
+describe('App.vue', () => {
+  test('describe nb of users', () => {
+    const wrapper = mount(App);
+    expect(wrapper.get('h2').text()).contains('users');
+  });
+});

@@ -4,28 +4,22 @@
     <figcaption>{{ ponyModel.name }}</figcaption>
   </figure>
 </template>
-<script lang="ts">
-import { computed, defineComponent, PropType } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import { PonyModel } from '@/models/PonyModel';
-export default defineComponent({
-  name: 'Pony',
-  props: {
-    ponyModel: {
-      type: Object as PropType<PonyModel>,
-      required: true
-    }
-  },
-  emits: {
-    ponySelected: () => true
-  },
-  setup(props, { emit }) {
-    const ponyImageUrl = computed(() => `/images/pony-${props.ponyModel.color.toLowerCase()}.gif`);
-    function clicked() {
-      emit('ponySelected');
-    }
-    return { ponyImageUrl, clicked };
-  }
-});
+
+const props = defineProps<{
+  ponyModel: PonyModel;
+}>();
+const emit = defineEmits<{
+  (e: 'ponySelected'): void;
+}>();
+
+function clicked() {
+  emit('ponySelected');
+}
+
+const ponyImageUrl = computed(() => `/images/pony-${props.ponyModel.color.toLowerCase()}.gif`);
 </script>
 
 <style scoped>

@@ -6,6 +6,7 @@
 
     <div>
       <RouterLink class="btn btn-primary btn-large" to="/races">Races</RouterLink>
+      <RouterLink class="btn btn-primary btn-large" to="/register">Register</RouterLink>
     </div>
   </div>
 </template>
